@@ -1,42 +1,47 @@
-.ui.header Ride shares
+=render 'layouts/header'
+.ui.segment
+  %center
+    .ui.header Ride shares
+  %br
+  .ui.purple.cards
+    - @shares.each do |share|
+      .ui.purple.eight.wide.card{:style => "margin-left:20px; margin-right:20px;"}
+      
+        .content
+          .right.floated.meta 
+            = share.date
+          %img
+            = image_tag share.user_avatar , class: "ui avatar image "
+            = share.username
+        .content
+          %p 
+            = share.body
+          %i.money.icon
+            = share.price
+          %span.right.floated
+            %i.user.icon
+              = share.experience
+        .content
+          %span.right.floated
+            %i.road.icon
+              = share.distance
+          %i.car.icon
+            = share.car_make
+        .extra.content
+          = share.route
+          %span.right.floated
+            = share.location
+        .extra.content
+          %i.briefcase.icon
+            = share.luggage
+        .extra.content
+          .inline.field
+          -if share.user_id == current_user.id
+            = link_to 'Show', share
+            = link_to 'Edit', edit_share_path(share)
+            = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
-- @shares.each do |share|
-  .ui.fluid.card
-  
-    .content
-      .right.floated.meta 
-        = share.date
-      %img
-        = image_tag share.user_avatar , class: "ui avatar image "
-        = share.username
-    .content
-      %p 
-        = share.body
-      %i.money.icon
-        = share.price
-      %span.right.floated
-        = share.experience
-    .content
-      %span.right.floated
-        %i.road.icon
-          = share.distance
-      %i.car.icon
-        = share.car_make
-    .extra.content
-      = share.route
-      %span.right.floated
-        = share.location
-    .extra.content
-      = share.luggage
-    .extra.content
-      .inline.field
-      -if share.user_id == current_user.id
-        = link_to 'Show', share
-        = link_to 'Edit', edit_share_path(share)
-        = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
 
-
-%br
-
-= link_to 'New Share', new_share_path
+  = link_to 'New Share', new_share_path ,:class => "ui small purple button"

@@ -1,0 +1,18 @@
+%center
+  %br
+  .ui.large.purple.ribbon.label Sharecar
+.ui.secondary.menu
+  .ui.home.icon 
+    = link_to "Home", root_path ,:class => "ui  item"
+  .ui.mail.icon
+    =link_to ""
+  .ui.car.icon
+    =link_to  "Shares",shares_path,:class => "ui  item"
+  .right.menu
+    .item
+    -unless signed_in?
+      
+      = link_to "Sign in" ,  new_user_session_path , :class => "ui item"
+    -else
+      = link_to "My Account" , edit_user_registration_path , :class => "ui item"
+      =link_to "Sign Out", destroy_user_session_path, method: :delete ,:class => "ui item" 

@@ -7,7 +7,13 @@ class SharesController < ApplicationController
   def index
     @shares = Share.all
     @user= User.all
-  
+  if params[:search]
+    @shares = Share.search(params[:search])
+  else
+    @shares = Share.all
+
+  end
+
   end
 
   # GET /shares/1

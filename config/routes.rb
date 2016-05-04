@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'static/terms'
+
+  get 'static/about'
+
+  get 'static/how_it_works'
+
+  get 'static/privacy_policy'
+
   get 'profile/index'
 
   resources :shares

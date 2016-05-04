@@ -16,7 +16,8 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem "haml-rails"
 gem "erb2haml", :group => :development
-
+gem 'puma'
+# gem 'pg'
 group :development, :test do
   gem 'byebug'
 end

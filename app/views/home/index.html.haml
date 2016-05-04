@@ -1,8 +1,6 @@
--if user_signed_in?
-
-	=link_to "Sign Out", destroy_user_session_path , method: :delete
-	=link_to "Account" , edit_user_registration_path
--else
-	=link_to "Sign in" , new_user_session_path
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+=render 'layouts/home_header'
+%section.first{:style => "background-image:url(assets/share.jpg)!important;height:500px;padding-top:130px;opacity:0.4s;"}
+	%center
+		%i.massive.car.icon{:style => "color:white;"}
+		.ui.header{:style => "color:white;"} Connecting people who need to travel with drivers who have extra seats
+=render 'layouts/footer'
