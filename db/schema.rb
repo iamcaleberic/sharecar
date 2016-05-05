@@ -13,8 +13,26 @@
 
 ActiveRecord::Schema.define(version: 20160503151059) do
 
-# Could not dump table "shares" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "shares", force: :cascade do |t|
+    t.string   "username"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "location"
+    t.string   "car_make"
+    t.string   "price"
+    t.string   "route"
+    t.string   "distance"
+    t.datetime "date"
+    t.string   "luggage"
+    t.string   "experience"
+    t.integer  "user_id"
+  end
+
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -39,7 +57,8 @@ ActiveRecord::Schema.define(version: 20160503151059) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "shares", "users"
 end
