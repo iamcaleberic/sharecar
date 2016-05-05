@@ -17,6 +17,7 @@ gem "erb2haml", :group => :development
 gem 'puma'
 gem 'pg'
 gem 'devise'
+gem 'rails_12factor'
 group :development, :test do
   gem 'byebug'
 end
