@@ -14,7 +14,7 @@ gem 'semantic-ui-sass'
 gem "paperclip"
 gem "haml-rails"
 gem "erb2haml", :group => :development
-gem 'puma'
+
 gem 'pg'
 gem 'devise'
 
