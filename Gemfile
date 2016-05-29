@@ -13,8 +13,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'semantic-ui-sass'
 gem "paperclip"
 gem "haml-rails"
+gem 'rails_admin'
 gem "erb2haml", :group => :development
-
 gem 'pg'
 gem 'devise'
 

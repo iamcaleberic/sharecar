@@ -3,9 +3,10 @@
   %center
     .ui.header Ride shares
   %br
-  .ui.purple.cards{:style => "margin-left:30px;"}
+
+  .ui.purple.two.cards{:style => "margin-left:30px;"}
     - @shares.each do |share|
-      .ui.purple.fluid.card{:style => "margin-left:20px; margin-right:20px;padding:50px;width:500px;"}
+      .ui.purple.fluid.card
       
         .content
           .right.floated.meta 
@@ -38,7 +39,7 @@
         .extra.content
           .inline.field
           = link_to 'Show', share
-          -if share.user_id == current_user.id
+          -if user_signed_in? && share.user_id == current_user.id
             
             = link_to 'Edit', edit_share_path(share)
             = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }

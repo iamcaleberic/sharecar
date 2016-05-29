@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :superusers
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'static/terms'
 
   get 'static/about'

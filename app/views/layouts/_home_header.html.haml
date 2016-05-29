@@ -2,12 +2,12 @@
   %br
   .ui.large.purple.ribbon.label Sharecar
 .ui.secondary.menu
-  .ui.home.icon 
-    = link_to "Home", root_path ,:class => "ui  item"
+  %i.home.icon.link.icon Home 
+  = link_to "Home", root_path ,:class => "ui item "
   .ui.mail.icon
     =link_to ""
-  .ui.car.icon
-    =link_to  "Shares",shares_path,:class => "ui  item"
+  %i.car.icon.link.icon Shares
+  =link_to  "Shares",shares_path,:class => "ui  item"
   .right.menu
     .item
     .ui.input

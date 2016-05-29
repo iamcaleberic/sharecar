@@ -1,6 +1,30 @@
 =render 'layouts/home_header'
-.ui.segment.first
+
+.ui.segment#first
 	%center
 		%i.massive.car.icon{:style => "color:white;"}
 		.ui.header{:style => "color:white;"} Connecting people who need to travel with drivers who have extra seats
+.ui.segment#second
+	.ui.stackable.four.column.grid
+		.column
+			.ui.purple.header Easy
+			%p Cash for your Extra seats
+		.column
+			.ui.purple.header Accesible
+			%p No hustle its straight forward
+		.column
+			.ui.purple.header Convinient
+			%p Get Travel Companions and a fast clean service
+		.column
+			.ui.purple.header Rewarding
+			%p Save money in terms of travel expenses shared
+.ui.segment#third
+	.ui.stackable.two.column.grid
+		.column#image
+			
+		.column
+			%center
+				%h4 How it Works
+				%p You got a free sit why dont you look for a companion
+
 =render 'layouts/footer'
