@@ -7,13 +7,7 @@ class SharesController < ApplicationController
   def index
     @shares = Share.all
     @user= User.all
-  if params[:search]
-    @shares = Share.search(params[:search])
-  else
-    @shares = Share.all
-
-  end
-
+  
   end
 
   # GET /shares/1
@@ -80,6 +74,6 @@ class SharesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_params
-      params.require(:share).permit(:user_id,:username, :body, :created_at, :updated_at, :location, :car_make, :price, :route, :distance, :date, :luggage, :experience)
+      params.require(:share).permit(:avatar,:user_id,:username, :body, :created_at, :updated_at, :location, :car_make, :price, :route, :distance, :date, :luggage, :experience,:superuser_id)
     end
 end

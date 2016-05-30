@@ -1,8 +1,7 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
+#bn{color:#7bae45;}
 #first{background:asset_url("share.jpg") fixed !important;
 		height:500px;
 		padding-top:130px;
@@ -11,6 +10,12 @@
 	margin-top:50px;
 	padding-left:5%;
 	padding-right:5%;
+
+
+}
+#sgrid{
+	padding-top:5%;
+	padding-bottom:5%;
 }
 #third{
 	height:auto;
@@ -18,12 +23,19 @@
 	padding-left:5%;
 	padding-right:5%;
 }
+#tgrid{
+	height:300px;
+
+	
+}
 #image{
 	
-	background:asset_url("gridshare.jpg");
+	background:asset_url("gridshare.jpg") center fixed;
 }
 #footer{
 	padding-left:5%;
 	padding-right:5%;
-	
+	height:100px;
+	padding-top:5%;
+	padding-bottom:5%;
 }

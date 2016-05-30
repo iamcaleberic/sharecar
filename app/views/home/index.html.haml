@@ -5,7 +5,7 @@
 		%i.massive.car.icon{:style => "color:white;"}
 		.ui.header{:style => "color:white;"} Connecting people who need to travel with drivers who have extra seats
 .ui.segment#second
-	.ui.stackable.four.column.grid
+	.ui.stackable.four.column.grid#sgrid
 		.column
 			.ui.purple.header Easy
 			%p Cash for your Extra seats
@@ -19,12 +19,12 @@
 			.ui.purple.header Rewarding
 			%p Save money in terms of travel expenses shared
 .ui.segment#third
-	.ui.stackable.two.column.grid
+	.ui.stackable.two.column.grid#tgrid
 		.column#image
 			
-		.column
+		.column#gtext
 			%center
-				%h4 How it Works
+				.ui.purple.header How it Works
 				%p You got a free sit why dont you look for a companion
 
 =render 'layouts/footer'

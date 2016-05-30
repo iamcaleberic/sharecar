@@ -1,11 +1,14 @@
 require 'test_helper'
 
 class SharesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @share = shares(:one)
+    sign_in User.first
   end
 
   test "should get index" do
+
     get :index
     assert_response :success
     assert_not_nil assigns(:shares)
@@ -18,7 +21,7 @@ class SharesControllerTest < ActionController::TestCase
 
   test "should create share" do
     assert_difference('Share.count') do
-      post :create, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username }
+      post :create, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username ,avatar: @share.avatar, user_id: @share.user_id, superuser_id: @share.superuser_id }
     end
 
     assert_redirected_to share_path(assigns(:share))
@@ -35,7 +38,7 @@ class SharesControllerTest < ActionController::TestCase
   end
 
   test "should update share" do
-    patch :update, id: @share, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username }
+    patch :update, id: @share, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username ,avatar: @share.avatar, user_id: @share.user_id, superuser_id: @share.superuser_id}
     assert_redirected_to share_path(assigns(:share))
   end
 
@@ -46,4 +49,5 @@ class SharesControllerTest < ActionController::TestCase
 
     assert_redirected_to shares_path
   end
+
 end

@@ -8,40 +8,45 @@
             %li= msg
 
     .field
-      =f.hidden_field :user_avatar, :value => current_user.avatar.url(:thumb)
+      =f.hidden_field :avatar, :value => current_user.avatar.url(:thumb)
        
     .field
       = f.hidden_field :username ,:value => current_user.username
     .field
       = f.label :details
-      = f.text_field :body
+      = f.text_field :body, placeholder: "Details of your trip"
     .field
-      = f.hidden_field :created_at ,:value => Time.now
+      = f.hidden_field :created_at ,:value => Date.today
     .field
-      = f.hidden_field :updated_at , :value => Time.now
-    .field
-      = f.label :location
-      = f.text_field :location
-    .field
-      = f.label :car_make
-      = f.text_field :car_make
-    .field
-      = f.label :price
-      = f.text_field :price
-    .field
-      = f.label :route
-      = f.text_field :route
-    .field
-      = f.label :distance
-      = f.text_field :distance
-    .inline.field
-      = f.label :date
-      = f.datetime_select :date
-    .field
-      = f.label :luggage
-      = f.text_field :luggage
-    .field
-      = f.label :experience
-      = f.text_field :experience
+      = f.hidden_field :updated_at , :value => Date.today
+    .two.fields
+      .field
+        = f.label :location
+        = f.text_field :location , placeholder: "Location of your pick up"
+      .field
+        = f.label :car_make
+        = f.text_field :car_make , placeholder: "Your  car Model"
+    .two.fields
+      .field
+        = f.label :price
+        = f.text_field :price, placeholder: "Price of the trip"
+      .field
+        = f.label :route
+        = f.text_field :route , placeholder: "Route to be used"
+    .two.fields
+      .field
+        = f.label :distance
+        = f.text_field :distance , placeholder: "Distance"
+      .field
+        = f.label :date
+        .inline.field 
+          = f.date_select :date , placeholder: "Date of the trip"
+    .two.fields
+      .field
+        = f.label :luggage
+        = f.text_field :luggage , placeholder: "Allowed Luggage size"
+      .field
+        = f.label :experience
+        = f.text_field :experience, placeholder: "Your Driving experience eg* High ,Medium or Low"
     .actions
       = f.submit 'Save' , :class => "ui small purple button"

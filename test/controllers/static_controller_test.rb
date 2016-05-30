@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class StaticControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   test "should get terms" do
     get :terms
     assert_response :success

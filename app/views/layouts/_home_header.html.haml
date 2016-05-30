@@ -1,24 +1,20 @@
 %center
   %br
   .ui.large.purple.ribbon.label Sharecar
-.ui.secondary.menu
-  %i.home.icon.link.icon Home 
-  = link_to "Home", root_path ,:class => "ui item "
+.ui.secondary.menu 
+  = link_to root_path ,class: "ui item " do
+    %i.home.icon.link.icon 
+    Home
   .ui.mail.icon
     =link_to ""
-  %i.car.icon.link.icon Shares
-  =link_to  "Shares",shares_path,:class => "ui  item"
+  
+  =link_to shares_path,:class => "ui  item" do
+    %i.car.icon.link.icon 
+    Shares
   .right.menu
     .item
-    .ui.input
-      = form_tag(shares_path, :method => "get", id: "search-form") do
-        = text_field_tag :search, params[:search], placeholder: "Search shares"
-        = submit_tag "Search" , :name =>  nil , :class => "ui small purple button"
-        - if @shares.present?
-          = render @shares
     -unless signed_in?
       
-      = link_to "Sign in" ,  new_user_session_path , :class => "ui item"
-    -else
-      = link_to "My Account" , edit_user_registration_path , :class => "ui item"
-      =link_to "Sign Out", destroy_user_session_path, method: :delete ,:class => "ui item" 
+      = link_to   new_user_session_path , :class => "ui item" do
+        %i.user.icon.link.icon
+        Sign in

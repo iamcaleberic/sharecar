@@ -11,54 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516141103) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
+ActiveRecord::Schema.define(version: 20160529222354) do
 
   create_table "shares", force: :cascade do |t|
     t.string   "username"
     t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "location"
     t.string   "car_make"
     t.string   "price"
     t.string   "route"
     t.string   "distance"
-    t.datetime "date"
+    t.date     "date"
     t.string   "luggage"
     t.string   "experience"
     t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "superuser_id"
   end
 
-  add_index "shares", ["user_id"], name: "index_shares_on_user_id", using: :btree
+  add_index "shares", ["superuser_id"], name: "index_shares_on_superuser_id"
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id"
 
   create_table "superusers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -69,14 +46,14 @@ ActiveRecord::Schema.define(version: 20160516141103) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "superusers", ["email"], name: "index_superusers_on_email", unique: true, using: :btree
-  add_index "superusers", ["reset_password_token"], name: "index_superusers_on_reset_password_token", unique: true, using: :btree
+  add_index "superusers", ["email"], name: "index_superusers_on_email", unique: true
+  add_index "superusers", ["reset_password_token"], name: "index_superusers_on_reset_password_token", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -101,8 +78,7 @@ ActiveRecord::Schema.define(version: 20160516141103) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  add_foreign_key "shares", "users"
 end
