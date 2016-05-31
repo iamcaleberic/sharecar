@@ -6,9 +6,9 @@
 
       .content
         .right.floated.meta 
-          = @share.date
+          = @share.date.readable_inspect() 
         %img
-          = image_tag @share.avatar , class: ".ui.tiny.circular.image "
+          %i.user.icon.link.icon
           = @share.username
       .content
         %p 
