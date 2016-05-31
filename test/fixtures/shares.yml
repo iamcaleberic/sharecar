@@ -14,7 +14,7 @@ one:
   date: 2016-05-03 
   luggage: MyString
   experience: MyString
-  avatar_file_name: system/users/avatars/000/001/me.jpg
+  avatar_file_name: fixture_file_upload('spec/fixtures/images/spherea.png' 
   user_id: 1
   superuser_id: 1
 

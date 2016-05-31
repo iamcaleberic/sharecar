@@ -23,8 +23,7 @@ gem 'capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-gem 'guard-minitest'
-gem 'guard'
+
 group :production do
 	gem 'rails_12factor'
 end
@@ -34,6 +33,8 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-reporters'
   gem 'mini_backtrace'
+  gem 'guard-minitest'
+  gem 'guard'
   
 end
 
