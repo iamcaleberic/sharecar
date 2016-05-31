@@ -21,7 +21,7 @@ class SharesControllerTest < ActionController::TestCase
 
   test "should create share" do
     assert_difference('Share.count') do
-      post :create, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username ,avatar: @share.avatar, user_id: @share.user_id, superuser_id: @share.superuser_id }
+      post :create, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username , user_id: @share.user_id, superuser_id: @share.superuser_id }
     end
 
     assert_redirected_to share_path(assigns(:share))
@@ -38,7 +38,7 @@ class SharesControllerTest < ActionController::TestCase
   end
 
   test "should update share" do
-    patch :update, id: @share, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username ,avatar: @share.avatar, user_id: @share.user_id, superuser_id: @share.superuser_id}
+    patch :update, id: @share, share: { body: @share.body, car_make: @share.car_make, created_at: @share.created_at, date: @share.date, distance: @share.distance, experience: @share.experience, location: @share.location, luggage: @share.luggage, price: @share.price, route: @share.route, updated_at: @share.updated_at, username: @share.username , user_id: @share.user_id, superuser_id: @share.superuser_id}
     assert_redirected_to share_path(assigns(:share))
   end
 
