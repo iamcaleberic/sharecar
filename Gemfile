@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.6'
-
+gem 'pg'
 gem 'mysql2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -17,7 +17,6 @@ gem "paperclip"
 gem "haml-rails"
 gem 'rails_admin'
 gem "erb2haml", :group => :development
-gem 'pg'
 gem 'devise'
 gem 'capistrano'
 gem 'capistrano-rvm'
