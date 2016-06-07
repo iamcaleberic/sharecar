@@ -31,6 +31,7 @@ class SharesController < ApplicationController
   def create
     @share = Share.new(share_params)
     @share.user = current_user
+
     respond_to do |format|
       if @share.save
         format.html { redirect_to @share, notice: 'Share was successfully created.' }
@@ -74,6 +75,6 @@ class SharesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_params
-      params.require(:share).permit(:avatar,:user_id,:username, :body, :created_at, :updated_at, :location, :car_make, :price, :route, :distance, :date, :luggage, :experience,:superuser_id)
+      params.require(:share).permit(:avatar,:user_id,:username,:email, :body, :created_at, :updated_at, :location, :car_make, :price, :route, :distance, :date, :luggage, :experience,:superuser_id)
     end
 end

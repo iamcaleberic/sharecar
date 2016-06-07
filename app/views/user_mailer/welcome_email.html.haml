@@ -3,12 +3,17 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-      Welcome to example.com, #{@user.name}
+    %center
+      .ui.purple.car.icon
+    %h1{:style => "color:purple"}
+      Welcome to Sharecar, #{@user.name}
+    %hr
     %p
-      You have successfully signed up to example.com,
-      your username is: #{@user.login}.
+      You have successfully signed up to Sharecar,
+      your username is: #{@user.username}.
       %br
     %p
       To login to the site, just follow this link: #{@url}.
     %p Thanks for joining and have a great day!
+    %hr
+    %i{:style => "color:purple"} This is automatically generated email.Please Do Not Reply

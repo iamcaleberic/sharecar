@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529222354) do
+ActiveRecord::Schema.define(version: 20160607152848) do
 
   create_table "shares", force: :cascade do |t|
     t.string   "username"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160529222354) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "superuser_id"
+    t.string   "email"
   end
 
   add_index "shares", ["superuser_id"], name: "index_shares_on_superuser_id"

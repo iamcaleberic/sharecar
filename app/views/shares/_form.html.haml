@@ -12,6 +12,7 @@
        
     .field
       = f.hidden_field :username ,:value => current_user.username
+      = f.hidden_field :email , :value => current_user.email
     .field
       = f.label :details
       = f.text_field :body, placeholder: "Details of your trip"
