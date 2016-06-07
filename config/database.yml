@@ -1,0 +1,20 @@
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  username: cal
+  password: 
+
+test:
+  <<: *default
+  database: sharecar
+
+development:
+  <<: *default
+  database: sharecar
+
+
+production:
+  <<: *default
+  database: sharecar
+

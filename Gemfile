@@ -22,7 +22,7 @@ gem 'capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-
+gem 'figaro'
 group :production do
 	gem 'rails_12factor'
 end
