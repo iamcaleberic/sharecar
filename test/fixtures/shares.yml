@@ -1,0 +1,15 @@
+one: 
+    username: string
+    body: string
+    location: string
+    car_make: string
+    price: string
+    route: string
+    distance: string
+    date: 1/1/1
+    luggage: string
+    experience: string
+    user_id: 1
+    avatar_file_name: string
+    superuser_id: string
+    email: string

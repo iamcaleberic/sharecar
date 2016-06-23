@@ -4,7 +4,7 @@ class SharesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
     @share = shares(:one)
-    sign_in User.first
+    sign_in users(:one)
   end
 
   test "should get index" do
