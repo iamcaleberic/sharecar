@@ -1,22 +1,12 @@
-%center
-  %br
-  .ui.large.purple.ribbon.label#title Sharecar
-
-.ui.secondary.menu
-  = link_to root_path ,class: "ui item " do
-    %i.home.icon.link.icon 
-    Home
-  .ui.mail.icon
-    =link_to ""
-  
+.ui.small.top.fixed.inverted.purple.menu
+  = link_to 'Sharecar', root_path ,class: "ui item"
   =link_to shares_path,:class => "ui  item" do
     %i.car.icon.link.icon 
     Shares
   .right.menu
-    .item
     -unless user_signed_in?
       
-      = link_to   new_user_session_path , :class => "ui item" do
+      = link_to new_user_session_path , :class => "ui item" do
         %i.user.icon.link.icon
         Sign in
     -else 
@@ -28,4 +18,5 @@
         Sign Out
 
     - if superuser_signed_in?
-      =link_to "Sign Out" , destroy_superuser_session_path , method: :delete,:class => "ui item"
+      =link_to "Sign Out" , destroy_superuser_session_path , method: :delete , :class => "ui item"
+%br

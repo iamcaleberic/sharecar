@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   has_many :shares
   after_create :send_welcome_email
-  after_update :send_update_email
+  # after :send_update_email
   def send_welcome_email
-	  UserMailer.welcome_email(self).deliver
+	  UserMailer.welcome_email(self).deliver_now
   end
   def send_update_email
-    UserMailer.update_email(self).deliver
+    UserMailer.update_email(self).deliver_now
   end
 end

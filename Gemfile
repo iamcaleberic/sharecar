@@ -23,6 +23,7 @@ gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'figaro'
+gem 'cancancan'
 group :production do
 	gem 'rails_12factor'
 end

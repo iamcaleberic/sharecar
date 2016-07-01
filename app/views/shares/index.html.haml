@@ -1,5 +1,7 @@
 =render 'layouts/header'
-.ui.purple.segment
+/ =form_for :search, url: search_path(:search), :method => :get  do |f|
+/   =f.text_field :q
+.ui.basic.segment
   %center
     .ui.header Ride shares
   %br
@@ -10,7 +12,8 @@
         
           .content
             .right.floated.meta 
-              = share.date.readable_inspect() 
+              -if present?
+                = share.date.readable_inspect() 
             %img
               %i.user.icon.link.icon
               = share.username

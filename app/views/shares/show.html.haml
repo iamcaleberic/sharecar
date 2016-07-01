@@ -1,12 +1,13 @@
 =render 'layouts/header'
 %p#notice= notice
-.ui.segment
+.ui.basic.segment
   .ui.special.cards
     .ui.fluid.card
 
       .content
         .right.floated.meta 
-          = @share.date.readable_inspect() 
+          - if present?
+            = @share.date.readable_inspect() 
         %img
           %i.user.icon.link.icon
           = @share.username

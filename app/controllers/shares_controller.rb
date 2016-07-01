@@ -4,6 +4,7 @@ class SharesController < ApplicationController
 
   # GET /shares
   # GET /shares.json
+
   def index
     @shares = Share.all
     @user= User.all
@@ -66,6 +67,18 @@ class SharesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # # Search shares
+  # def search
+  #   @search = Share.search do
+  #     fulltext params[:search][:q]
+  #   end
+  #   @share = @search.results
+  #   respond_to do |format|
+  #     format.html # index.html.erb
+  #     format.json { render json: @share }
+  #   end
+  #   # render json: @search
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,39 +1,40 @@
 =render 'layouts/header'
-.ui.purple.form.segment
-  .ui.header Sign up
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    .field
-      = f.label :name
-      %br/
-      = f.text_field :name
-    .field
-      = f.label :username
-      %br/
-      = f.text_field :username
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true
-    .inline.field
-      = f.label :Gender
-      %br/
-      = f.check_box :is_male, {}, true
-      = f.label :is_male, "Male"
+.ui.basic.purple.form.segment
+  .column#form
+    .ui.header Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :name
+        %br/
+        = f.text_field :name
+      .field
+        = f.label :username
+        %br/
+        = f.text_field :username
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true
+      .inline.field
+        = f.label :Gender
+        %br/
+        = f.check_box :is_male, {}, true
+        = f.label :is_male, "Male"
 
-      = f.check_box :is_male, {}, false
-      = f.label :is_male, "Female"
-    .field
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: "off"
-    .field
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
-    .actions
-      = f.submit "Sign up" , :class => "ui small purple button "
-      = render "devise/shared/links"
+        = f.check_box :is_male, {}, false
+        = f.label :is_male, "Female"
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit "Sign up" , :class => "ui small purple button " 
+        = render "devise/shared/links"
