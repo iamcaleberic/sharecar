@@ -32,7 +32,6 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    authorize! :create , @share
     @share = Share.new(share_params)
     @share.user = current_user
     @share.luggage = current_user.luggage
