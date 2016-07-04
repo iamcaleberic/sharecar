@@ -1,12 +1,11 @@
 class SharesController < ApplicationController
   before_action :authenticate_user! ,except: [:show, :index] 
   before_action :set_share, only: [:show, :edit, :update, :destroy]
-
+  # before_action :authorize! ,[:show, :edit, :update, :destroy]
   # GET /shares
   # GET /shares.json
 
   def index
-
     @shares = Share.all
     @user= User.all
   
@@ -21,16 +20,19 @@ class SharesController < ApplicationController
 
   # GET /shares/new
   def new
+    authorize! :new , @share
     @share = Share.new
   end
 
   # GET /shares/1/edit
-  def edit
+  def edit 
+    authorize! :edit , @share
   end
 
   # POST /shares
   # POST /shares.json
   def create
+    authorize! :create , @share
     @share = Share.new(share_params)
     @share.user = current_user
     @share.luggage = current_user.luggage
@@ -50,6 +52,7 @@ class SharesController < ApplicationController
   # PATCH/PUT /shares/1
   # PATCH/PUT /shares/1.json
   def update
+    authorize! :update , @share
     respond_to do |format|
       if @share.update(share_params)
         format.html { redirect_to @share, notice: 'Share was successfully updated.' }
@@ -64,6 +67,7 @@ class SharesController < ApplicationController
   # DELETE /shares/1
   # DELETE /shares/1.json
   def destroy
+    authorize! :destroy, @share
     @share.destroy
     respond_to do |format|
       format.html { redirect_to shares_url, notice: 'Share was successfully destroyed.' }
