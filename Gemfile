@@ -24,6 +24,8 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'figaro'
 gem 'cancancan'
+gem 'friendly_id', '~> 5.1.0' 
+
 group :production do
 	gem 'rails_12factor'
 end

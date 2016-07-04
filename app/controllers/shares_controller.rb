@@ -6,6 +6,7 @@ class SharesController < ApplicationController
   # GET /shares.json
 
   def index
+
     @shares = Share.all
     @user= User.all
   
@@ -32,7 +33,9 @@ class SharesController < ApplicationController
   def create
     @share = Share.new(share_params)
     @share.user = current_user
-
+    @share.luggage = current_user.luggage
+    @share.experience = current_user.experience
+    @share.car_make = current_user.car_model
     respond_to do |format|
       if @share.save
         format.html { redirect_to @share, notice: 'Share was successfully created.' }
@@ -83,7 +86,7 @@ class SharesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_share
-      @share = Share.find(params[:id])
+      @share = Share.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

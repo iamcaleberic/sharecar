@@ -24,9 +24,9 @@
       .field
         = f.label :location
         = f.text_field :location , placeholder: "Location of your pick up"
-      .field
-        = f.label :car_make
-        = f.text_field :car_make , placeholder: "Your  car Model"
+      / .field
+      /   = f.label :car_make
+      /   = f.text_field :car_make , placeholder: "Your  car Model"
     .two.fields
       .field
         = f.label :price
@@ -43,11 +43,11 @@
         .inline.field 
           = f.date_select :date , placeholder: "Date of the trip"
     .two.fields
-      .field
-        = f.label :luggage
-        = f.text_field :luggage , placeholder: "Allowed Luggage size"
-      .field
-        = f.label :experience
-        = f.text_field :experience, placeholder: "Your Driving experience eg* High ,Medium or Low"
+      / .field
+      /   = f.label :luggage
+      /   = f.text_field :luggage , placeholder: "Allowed Luggage size"
+      / .field
+      /   = f.label :experience
+      /   = f.text_field :experience
     .actions
       = f.submit 'Save' , :class => "ui small purple button"
