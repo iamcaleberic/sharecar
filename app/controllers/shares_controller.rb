@@ -74,7 +74,7 @@ class SharesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  # # Search shares
+  # # # Search shares
   # def search
   #   @search = Share.search do
   #     fulltext params[:search][:q]
@@ -84,7 +84,7 @@ class SharesController < ApplicationController
   #     format.html # index.html.erb
   #     format.json { render json: @share }
   #   end
-  #   # render json: @search
+  #   render json: @search
   # end
 
   private
