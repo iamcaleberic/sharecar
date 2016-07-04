@@ -1,0 +1,81 @@
+.ui.stackable.two.column.grid
+  .column{:style => "width:30%;"}
+    .ui.basic.segment{ :style => "margin:1%;"}
+      .ui.card
+        .image
+          = image_tag('share.jpg')
+        .content
+          %i.user.icon
+          = current_user.name
+          .meta
+            %span.date Joined in 2013
+          .description
+            = current_user.experience
+        .extra.content
+          %a
+            %i.user.icon
+            22 Friends
+      %br
+      %h5.purple.header Have a free seat?
+      = link_to 'New Share', new_share_path ,:class => "ui small purple button"
+      
+  .column
+    .ui.basic.segment
+      %center
+        .ui.header Ride shares
+        - if user_signed_in?
+          - unless current_user.experience.present? || current_user.luggage.present? || current_user.car_model.present?
+            .ui.red.message 
+              Please update your details to create ride shares
+      %br
+      - if @shares.count > 0
+        .column{:style => "margin-left:0%;"}
+          .ui.special.purple.cards
+            - @shares.each do |share|
+              .ui.purple.fluid.card
+              
+                .content
+                  .right.floated.meta 
+                    -if present?
+                      = share.date.readable_inspect() 
+                  %img
+                    %i.user.icon.link.icon
+                    = share.username
+                .content
+                  %p 
+                    = share.body
+                .content
+                  %i.money.icon
+                  = share.price
+                  %span.right.floated
+                    %i.user.icon
+                    = share.experience
+                .content
+                  %span.right.floated
+                    %i.road.icon
+                    = share.distance
+                  %i.car.icon
+                  = share.car_make
+                .extra.content
+                  = share.route
+                  %span.right.floated
+                    %i.briefcase.icon
+                    = share.luggage
+                .extra.content         
+                  %i.map.marker.icon
+                  = share.location
+                .extra.content
+                  .inline.field
+                  = link_to 'Show', share
+                  -if user_signed_in? && share.user_id == current_user.id
+                    
+                    = link_to 'Edit', edit_share_path(share)
+                    = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          
+        
+      
+      -else
+        %center
+          .ui.purple.header There are no Ride Shares available
+
+      

@@ -1,67 +1,71 @@
-=render 'layouts/header'
+= render 'layouts/header'
 / =form_for :search, url: search_path(:search), :method => :get  do |f|
 /   =f.text_field :q
-.ui.basic.segment
-  %center
-    .ui.header Ride shares
-    - if user_signed_in?
-      - unless current_user.experience.present? || current_user.luggage.present? || current_user.car_model.present?
-        .ui.red.message 
-          Please update your details to create ride shares
-  %br
-  - if @shares.count > 0
-    .column{:style => "margin-left:2%;"}
-      .ui.special.purple.two.cards
-        - @shares.each do |share|
-          .ui.purple.fluid.card
-          
-            .content
-              .right.floated.meta 
-                -if present?
-                  = share.date.readable_inspect() 
-              %img
-                %i.user.icon.link.icon
-                = share.username
-            .content
-              %p 
-                = share.body
-            .content
-              %i.money.icon
-              = share.price
-              %span.right.floated
-                %i.user.icon
-                = share.experience
-            .content
-              %span.right.floated
-                %i.road.icon
-                = share.distance
-              %i.car.icon
-              = share.car_make
-            .extra.content
-              = share.route
-              %span.right.floated
-                %i.briefcase.icon
-                = share.luggage
-            .extra.content         
-              %i.map.marker.icon
-              = share.location
-            .extra.content
-              .inline.field
-              = link_to 'Show', share
-              -if user_signed_in? && share.user_id == current_user.id
-                
-                = link_to 'Edit', edit_share_path(share)
-                = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+-if signed_in?
+  = render 'shares/private'
+-else
+  .ui.basic.segment
+    %center
+      .ui.header Ride shares
+      - if user_signed_in?
+        - unless current_user.experience.present? || current_user.luggage.present? || current_user.car_model.present?
+          .ui.red.message 
+            Please update your details to create ride shares
+    %br
+    - if @shares.count > 0
+      .column{:style => "margin-left:0%;"}
+        .ui.special.purple.two.cards
+          - @shares.each do |share|
+            .ui.purple.fluid.card
+            
+              .content
+                .right.floated.meta 
+                  -if present?
+                    = share.date.readable_inspect() 
+                %img
+                  %i.user.icon.link.icon
+                  = share.username
+              .content
+                %p 
+                  = share.body
+              .content
+                %i.money.icon
+                = share.price
+                %span.right.floated
+                  %i.user.icon
+                  = share.experience
+              .content
+                %span.right.floated
+                  %i.road.icon
+                  = share.distance
+                %i.car.icon
+                = share.car_make
+              .extra.content
+                = share.route
+                %span.right.floated
+                  %i.briefcase.icon
+                  = share.luggage
+              .extra.content         
+                %i.map.marker.icon
+                = share.location
+              .extra.content
+                .inline.field
+                = link_to 'Show', share
+                -if user_signed_in? && share.user_id == current_user.id
+                  
+                  = link_to 'Edit', edit_share_path(share)
+                  = link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        
       
     
-  
-  -else
-    %center
-      .ui.purple.header There are no Ride Shares available
+    -else
+      %center
+        .ui.purple.header There are no Ride Shares available
 
-  %br
-  %h5.purple.header Have a free seat?
-  = link_to 'New Share', new_share_path ,:class => "ui small purple button"
+    %br
+    %h5.purple.header Have a free seat?
+    = link_to 'New Share', new_share_path ,:class => "ui small purple button"
 / .ui.form.segment
 /   = form_tag(shares_path, :method => "get", id: "search-form") do
 /     = text_field_tag :search, params[:search], placeholder: "Search Posts"
