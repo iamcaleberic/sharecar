@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   
   has_many :shares
   
-  extend FriendlyId
-    friendly_id :name, use: :slugged
+  # extend FriendlyId
+  #   friendly_id :name, use: :slugged
   
   after_create :send_welcome_email
   # after :send_update_email
