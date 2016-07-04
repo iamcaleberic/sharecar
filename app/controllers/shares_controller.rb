@@ -20,7 +20,7 @@ class SharesController < ApplicationController
 
   # GET /shares/new
   def new
-    authorize! :new , @share
+    
     @share = Share.new
   end
 
